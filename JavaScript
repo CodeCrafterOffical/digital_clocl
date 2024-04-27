@@ -1,0 +1,26 @@
+function displayTime() {
+  //creating time objects
+  let date = new Date();
+  let h = date.getHours();
+  let m = date.getMinutes();
+  let s = date.getSeconds();
+  let ampm = "AM";
+
+  if (h > 12) {
+    h = h - 12;
+    ampm = "PM";
+  }
+
+  h = h < 10 ? "0" + h : h;
+  m = m < 10 ? "0" + m : m;
+  s = s < 10 ? "0" + s : s;
+
+  //adding time to the div with
+  let time = h + ":" + m + ":" + s + " " + ampm;
+  document.querySelector("#clock-container").textContent = time;
+
+  //setting Timer
+  setTimeout(displayTime, 1000);
+}
+//calling displayTime() to start
+displayTime();
